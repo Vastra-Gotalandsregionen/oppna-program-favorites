@@ -19,7 +19,12 @@
 				<portlet:param name="action" value="deleteFavorite" />
 				<portlet:param name="favoritePlid" value="${currentPlid}" />
 			</portlet:actionURL>
-			<a class="favorite-link favorite-link-remove" href="${deleteFavoriteUrl}">Ta bort favorit</a>
+			<a class="favorite-link favorite-link-remove" href="${deleteFavoriteUrl}">
+				<span class="link-label">
+					Ta bort favorit
+				</span>
+				<span class="icon-star"></span>
+			</a>
 		</c:when>
 		<c:otherwise>
 	
@@ -28,7 +33,12 @@
 				<portlet:param name="favoritePlid" value="${currentPlid}" />
 			</portlet:actionURL>
 		
-			<a class="favorite-link favorite-link-add" href="${addFavoriteUrl}">L&auml;gg till favorit</a>
+			<a class="favorite-link favorite-link-add" href="${addFavoriteUrl}">
+				<span class="link-label">
+					L&auml;gg till favorit
+				</span>
+				<span class="icon-star-empty"></span>
+			</a>
 		</c:otherwise>
 	</c:choose>
 </div>
