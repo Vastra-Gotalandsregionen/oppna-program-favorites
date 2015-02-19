@@ -58,7 +58,7 @@
 							<a class="link-button" href="${deleteFavoriteUrl}">
 								<span class="icon-minus-sign"></span>
 								<span>
-									Ta bort denna sida som favorit
+									Ta bort
 								</span>
 							</a>
 						</c:when>
@@ -72,7 +72,7 @@
 							<a class="link-button" href="${addFavoriteUrl}">
 								<span class="icon-plus-sign"></span>
 								<span>
-									L&auml;gg till denna sida som favorit
+									L&auml;gg till
 								</span>
 							</a>						
 						
