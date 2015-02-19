@@ -11,25 +11,28 @@
 <portlet:defineObjects />
 <liferay-theme:defineObjects />	
 
-<p>Favorites Display in view mode.</p>
+<div class="content-box">
+	<h2>Mina favoriter</h2>
+	<div class="content-box-bd">
+		<c:choose>
+			<c:when test="${fn:length(favoriteLayouts) gt 0 }">
+				<ul class="favorites-list">
+					<c:forEach var="favoriteLayout" items="${favoriteLayouts}">
+						<li>
+							
+							<a href="${favoriteLayout.friendlyURL}">
+								${favoriteLayout.name} &raquo;
+							</a>
+						</li>
+					</c:forEach>
+				</ul>
+			</c:when>
+			<c:otherwise>
+				<div class="portlet-msg-info">
+					Du har inte lagt till n&aring;gra favoriter &auml;nnu.
+				</div>
+			</c:otherwise>
+		</c:choose>	
+	</div>
+</div>
 
-<c:choose>
-	<c:when test="${fn:length(favoriteLayouts) gt 0 }">
-		<p>Found favorites</p>
-		<ul>
-			<c:forEach var="favoriteLayout" items="${favoriteLayouts}">
-				<li>
-					
-					<a href="${favoriteLayout.friendlyURL}">
-						${favoriteLayout.name}
-					</a>
-				</li>
-			</c:forEach>
-		</ul>
-	
-		
-	</c:when>
-	<c:otherwise>
-		<p>Did not find any favorites</p>
-	</c:otherwise>
-</c:choose>

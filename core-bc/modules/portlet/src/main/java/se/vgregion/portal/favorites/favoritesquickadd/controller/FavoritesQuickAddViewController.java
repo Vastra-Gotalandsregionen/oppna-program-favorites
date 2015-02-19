@@ -22,6 +22,7 @@ import se.vgregion.portal.favorites.service.FavoriteService;
 
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portal.model.Layout;
 import com.liferay.portal.theme.ThemeDisplay;
 
 /**
@@ -63,11 +64,15 @@ public class FavoritesQuickAddViewController {
         long companyId = themeDisplay.getCompanyId();
         long userId = themeDisplay.getUserId();
         long currentPlid = themeDisplay.getLayout().getPlid();
+        boolean isSignedIn = themeDisplay.isSignedIn();
         
         boolean isCurrentLayoutUserFavorite = favoriteService.isLayoutUserFavorite(companyId, scopeGroupId, userId, currentPlid);
+        List<Layout> favoriteLayouts = favoriteService.getUserFavoriteLayouts(companyId, scopeGroupId, userId);
         
-        model.addAttribute("isCurrentLayoutUserFavorite", isCurrentLayoutUserFavorite);
         model.addAttribute("currentPlid", currentPlid);
+        model.addAttribute("favoriteLayouts", favoriteLayouts);
+        model.addAttribute("isCurrentLayoutUserFavorite", isCurrentLayoutUserFavorite);
+        model.addAttribute("isSignedIn", isSignedIn);
 
         return "view";
     }

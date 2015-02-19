@@ -70,18 +70,7 @@ public class FavoritesViewController {
         long userId = themeDisplay.getUserId();
         boolean isSignedIn = themeDisplay.isSignedIn();
         
-        List<Favorite> favorites = favoriteService.findUserFavorites(companyId, scopeGroupId, userId);
-        
-        ArrayList<Layout> favoriteLayouts = new ArrayList<Layout>();
-        for(Favorite favorite : favorites) {
-        	
-        	Layout favoriteLayout = getLayoutFromFavorite(favorite);
-        	
-        	if(favoriteLayout != null) {
-        		favoriteLayouts.add(favoriteLayout);
-        	}
-        	
-        }
+        List<Layout> favoriteLayouts = favoriteService.getUserFavoriteLayouts(companyId, scopeGroupId, userId);
         
         model.addAttribute("favoriteLayouts", favoriteLayouts);
 
@@ -137,29 +126,6 @@ public class FavoritesViewController {
         response.setRenderParameter("showView", "");
     }
     
-    private final Layout getLayoutFromFavorite(Favorite favorite) {
-    	
-    	Layout favoriteLayout = null;
-    	
-    	try {
-			favoriteLayout = LayoutLocalServiceUtil.getLayout(favorite.getLayoutPlid());
-		} catch (PortalException e) {
-			
-			if(e instanceof NoSuchLayoutException) {
-				
-				System.out.println("Did not find any layout with this plid");
-				
-				return null;
-			} else {
-				LOGGER.error(e.getMessage(), e);	
-			}
-		} catch (SystemException e) {
-			LOGGER.error(e.getMessage(), e);
-		}
-    	
-    	return favoriteLayout;
-    	
-    }
 
 }
 

@@ -2,6 +2,8 @@ package se.vgregion.portal.favorites.service;
 
 import java.util.List;
 
+import com.liferay.portal.model.Layout;
+
 import se.vgregion.portal.favorites.domain.jpa.Favorite;
 import se.vgregion.portal.favorites.exception.CreateFavoriteException;
 import se.vgregion.portal.favorites.exception.UpdateFavoriteException;
@@ -133,6 +135,19 @@ public interface FavoriteService {
      * @return a {@link List} of {@link Favorite}s
      */
     List<Favorite> findUserFavorites(long companyId, long groupId, long userId , int start, int offset);
+    
+    /**
+     * Find {@link Layout}s for a user in a group in a company.
+     *
+     * @param companyId the companyid
+     * @param groupId   the groupId
+     * @param userId   the userId 
+     * @param start   start index
+     * @param end   maxIndex
+     * @return a {@link List} of {@link Favorite}s
+     */
+    List<Layout> getUserFavoriteLayouts(long companyId, long groupId, long userId);
+    
 
     /**
      * Check whether a layout of a certain plid has been added as a {@link Favorite}s for a user in a group in a company.

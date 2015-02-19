@@ -8,9 +8,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.liferay.portal.NoSuchLayoutException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.model.Layout;
 import com.liferay.portal.model.User;
+import com.liferay.portal.service.LayoutLocalServiceUtil;
 import com.liferay.portlet.expando.model.ExpandoTableConstants;
 import com.liferay.portlet.expando.service.ExpandoValueLocalServiceUtil;
 
@@ -120,6 +123,36 @@ public class FavoriteServiceImpl implements FavoriteService {
     	List<Favorite> favorites = favoriteRepository.findUserFavoritesByLayoutPlid(companyId, groupId, userId, layoutPlid);
     	
     	return favorites;
+    }
+    
+    @Override
+    public List<Layout> getUserFavoriteLayouts(long companyId, long groupId, long userId) {
+    	
+    	List<Favorite> favorites = findUserFavorites(companyId, groupId, userId);
+    	
+    	ArrayList<Layout> favoriteLayouts = new ArrayList<Layout>();
+    	
+    	for(Favorite favorite : favorites) {
+        	Layout favoriteLayout = null;
+        	
+        	try {
+    			favoriteLayout = LayoutLocalServiceUtil.getLayout(favorite.getLayoutPlid());
+    			
+    			favoriteLayouts.add(favoriteLayout);
+    		} catch (PortalException e) {
+    			
+    			if(e instanceof NoSuchLayoutException) {
+    				// Do nothing
+    			} else {
+    				LOGGER.error(e.getMessage(), e);	
+    			}
+    		} catch (SystemException e) {
+    			LOGGER.error(e.getMessage(), e);
+    		}
+    	}
+    	
+    	
+    	return favoriteLayouts;
     }
     
     @Override
