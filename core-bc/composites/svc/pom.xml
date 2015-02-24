@@ -40,12 +40,14 @@
 			<version>3.5</version>
 		</dependency>
 
+		<!-- 
 		<dependency>
 			<groupId>icu4j</groupId>
 			<artifactId>icu4j</artifactId>
 			<version>2.6.1</version>
 		</dependency>
-
+	 	-->
+		 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -77,31 +79,6 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-
-	      <dependency>
-	        <groupId>org.json</groupId>
-	        <artifactId>json</artifactId>
-	        <version>20090211</version>
-	      </dependency>
-
-	      <dependency>
-	        <groupId>org.apache.httpcomponents</groupId>
-	        <artifactId>httpclient</artifactId>
-	        <version>4.1.2</version>
-	      </dependency>
-
-	      <dependency>
-	        <groupId>org.apache.httpcomponents</groupId>
-	        <artifactId>httpmime</artifactId>
-	        <version>4.1.2</version>
-	      </dependency>
-
-	      <dependency>
-	        <groupId>org.apache.xbean</groupId>
-	        <artifactId>xbean-spring</artifactId>
-	        <version>3.7</version>
-	        <!--<scope>test</scope>--> <!-- todo Should be test scope when we remove the embedded active mq from runtime -->
-	      </dependency>
 
 	      <dependency>
 	        <groupId>org.springframework</groupId>

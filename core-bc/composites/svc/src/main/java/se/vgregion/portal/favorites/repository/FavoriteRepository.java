@@ -113,7 +113,7 @@ public interface FavoriteRepository extends Repository<Favorite, Long> {
      * @param favoritePlid  the plid of the favorite
      * @return a {@link List} of {@link Favorite}s
      */
-    List<Favorite> findUserFavoritesByLayoutPlid(long companyId, long groupId, long userId , long layoutPlid);
+    Favorite findUserFavoriteByLayoutPlid(long companyId, long groupId, long userId , long layoutPlid);
     
     
     /**

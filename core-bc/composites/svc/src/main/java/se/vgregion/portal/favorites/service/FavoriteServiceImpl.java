@@ -119,10 +119,10 @@ public class FavoriteServiceImpl implements FavoriteService {
     }
     
     @Override
-    public List<Favorite> findUserFavoritesByPlid(long companyId, long groupId, long userId , long layoutPlid) {
-    	List<Favorite> favorites = favoriteRepository.findUserFavoritesByLayoutPlid(companyId, groupId, userId, layoutPlid);
+    public Favorite findUserFavoriteByPlid(long companyId, long groupId, long userId , long layoutPlid) {
+    	Favorite favorite = favoriteRepository.findUserFavoriteByLayoutPlid(companyId, groupId, userId, layoutPlid);
     	
-    	return favorites;
+    	return favorite;
     }
     
     @Override
@@ -158,9 +158,9 @@ public class FavoriteServiceImpl implements FavoriteService {
     @Override
     public Boolean isLayoutUserFavorite(long companyId, long groupId, long userId, long layoutPlid) {
     	
-    	List<Favorite> favorites = favoriteRepository.findUserFavoritesByLayoutPlid(companyId, groupId, userId, layoutPlid);
+    	Favorite favorite = favoriteRepository.findUserFavoriteByLayoutPlid(companyId, groupId, userId, layoutPlid);
     	
-    	return (favorites.size() > 0);
+    	return (favorite != null);
     }
     
     @Override

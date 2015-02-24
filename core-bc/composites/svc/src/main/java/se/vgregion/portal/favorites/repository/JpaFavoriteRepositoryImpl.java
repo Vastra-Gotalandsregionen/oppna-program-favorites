@@ -170,7 +170,7 @@ public class JpaFavoriteRepositoryImpl extends DefaultJpaRepository<Favorite, Lo
     }
     
     @Override
-    public List<Favorite> findUserFavoritesByLayoutPlid(long companyId, long groupId, long userId , long layoutPlid) {
+    public Favorite findUserFavoriteByLayoutPlid(long companyId, long groupId, long userId , long layoutPlid) {
     	
         String queryString = "" 
         		+ " SELECT DISTINCT n FROM Favorite n" 
@@ -184,7 +184,11 @@ public class JpaFavoriteRepositoryImpl extends DefaultJpaRepository<Favorite, Lo
         
         List favorites = findByQuery(queryString, queryObject);
         
-        return favorites;
+        if(favorites.size() > 0) {
+        	return (Favorite)favorites.get(0);
+        } else {
+        	return null;
+        }
     }
     
     @Override

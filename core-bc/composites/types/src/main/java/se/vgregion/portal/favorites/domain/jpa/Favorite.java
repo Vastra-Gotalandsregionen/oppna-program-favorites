@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import se.vgregion.dao.domain.patterns.entity.AbstractEntity;
 
@@ -16,7 +17,10 @@ import se.vgregion.dao.domain.patterns.entity.AbstractEntity;
  * @company Monator Technologies AB
  */
 @Entity
-@Table(name = "vgr_favorite")
+@Table(
+	name = "vgr_favorite",
+	uniqueConstraints  = @UniqueConstraint(columnNames = {"company_id", "group_id", "user_id", "layout_plid"})
+)
 public class Favorite extends AbstractEntity<Long> {
 
 	// Primary Key
@@ -36,7 +40,7 @@ public class Favorite extends AbstractEntity<Long> {
     @Column(name = "user_id")
     private long userId;
     
-    @Column(name = "layoutPlid")
+    @Column(name = "layout_plid")
     private long layoutPlid;
     
     /**

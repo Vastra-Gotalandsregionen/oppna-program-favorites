@@ -120,9 +120,9 @@ public interface FavoriteService {
      * @param groupId   the groupId
      * @param userId   the userId 
      * @param layoutPlid   the layoutPlid
-     * @return a {@link List} of {@link Favorite}s
+     * @return a {@link Favorite}s
      */
-    List<Favorite> findUserFavoritesByPlid(long companyId, long groupId, long userId , long layoutPlid);
+    Favorite findUserFavoriteByPlid(long companyId, long groupId, long userId , long layoutPlid);
     
     /**
      * Find {@link Favorite}s for a user in a group in a company.

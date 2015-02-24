@@ -124,9 +124,9 @@ public class FavoritesQuickAddViewController {
     	
         long favoritePlid = ParamUtil.getLong(request, "favoritePlid", 0);
         
-        List<Favorite> favorites = favoriteService.findUserFavoritesByPlid(companyId, groupId, userId, favoritePlid);
+        Favorite favorite = favoriteService.findUserFavoriteByPlid(companyId, groupId, userId, favoritePlid);
         
-        for(Favorite favorite : favorites) {
+        if (favorite != null) {
         	favoriteService.deleteFavorite(favorite.getId());
         }
         
