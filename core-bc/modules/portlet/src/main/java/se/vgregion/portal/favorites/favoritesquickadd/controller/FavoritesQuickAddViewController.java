@@ -17,6 +17,7 @@ import org.springframework.web.portlet.bind.annotation.ActionMapping;
 import org.springframework.web.portlet.bind.annotation.RenderMapping;
 
 import se.vgregion.portal.favorites.domain.jpa.Favorite;
+import se.vgregion.portal.favorites.domain.util.FavoritesConstants;
 import se.vgregion.portal.favorites.exception.CreateFavoriteException;
 import se.vgregion.portal.favorites.service.FavoriteService;
 
@@ -68,11 +69,14 @@ public class FavoritesQuickAddViewController {
         
         boolean isCurrentLayoutUserFavorite = favoriteService.isLayoutUserFavorite(companyId, scopeGroupId, userId, currentPlid);
         List<Layout> favoriteLayouts = favoriteService.getUserFavoriteLayouts(companyId, scopeGroupId, userId);
+        int paginatorItemsPerPage = FavoritesConstants.PAGINATOR_ITEMS_PER_PAGE;
         
         model.addAttribute("currentPlid", currentPlid);
         model.addAttribute("favoriteLayouts", favoriteLayouts);
         model.addAttribute("isCurrentLayoutUserFavorite", isCurrentLayoutUserFavorite);
         model.addAttribute("isSignedIn", isSignedIn);
+        model.addAttribute("paginatorItemsPerPage", paginatorItemsPerPage);
+        model.addAttribute("favoriteLayoutsTotal", favoriteLayouts.size());
 
         return "view";
     }
