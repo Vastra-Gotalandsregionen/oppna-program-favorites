@@ -1,5 +1,6 @@
 package se.vgregion.portal.favorites.favoritesquickadd.controller;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.portlet.ActionRequest;
@@ -20,6 +21,8 @@ import se.vgregion.portal.favorites.domain.jpa.Favorite;
 import se.vgregion.portal.favorites.domain.util.FavoritesConstants;
 import se.vgregion.portal.favorites.exception.CreateFavoriteException;
 import se.vgregion.portal.favorites.service.FavoriteService;
+
+import se.vgregion.portal.favorites.comporator.LayoutNameCompator;
 
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -69,6 +72,9 @@ public class FavoritesQuickAddViewController {
         
         boolean isCurrentLayoutUserFavorite = favoriteService.isLayoutUserFavorite(companyId, scopeGroupId, userId, currentPlid);
         List<Layout> favoriteLayouts = favoriteService.getUserFavoriteLayouts(companyId, scopeGroupId, userId);
+        
+        Collections.sort(favoriteLayouts, new LayoutNameCompator(themeDisplay.getLocale(), "asc"));
+        
         int paginatorItemsPerPage = FavoritesConstants.PAGINATOR_ITEMS_PER_PAGE;
         
         model.addAttribute("currentPlid", currentPlid);

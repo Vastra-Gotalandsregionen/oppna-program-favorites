@@ -8,20 +8,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import se.vgregion.portal.favorites.domain.jpa.Favorite;
+import se.vgregion.portal.favorites.exception.CreateFavoriteException;
+import se.vgregion.portal.favorites.exception.UpdateFavoriteException;
+import se.vgregion.portal.favorites.repository.FavoriteRepository;
+
 import com.liferay.portal.NoSuchLayoutException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.Layout;
-import com.liferay.portal.model.User;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
-import com.liferay.portlet.expando.model.ExpandoTableConstants;
-import com.liferay.portlet.expando.service.ExpandoValueLocalServiceUtil;
-
-import se.vgregion.portal.favorites.domain.jpa.Favorite;
-import se.vgregion.portal.favorites.domain.util.FavoritesConstants;
-import se.vgregion.portal.favorites.exception.CreateFavoriteException;
-import se.vgregion.portal.favorites.exception.UpdateFavoriteException;
-import se.vgregion.portal.favorites.repository.FavoriteRepository;
 
 /**
  * Implementation of {@link FavoriteService}.
