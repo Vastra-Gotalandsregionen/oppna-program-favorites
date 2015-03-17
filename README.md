@@ -56,7 +56,7 @@ Styling for the favorites portlet can be found in the project [ Intra Theme ](ht
 
 ## Requirements ##
 
-The plugin creates a custom table in the Liferay database by using JPA. In order for this to work, a database pool must be configured in tomcat as well as in the portlet.
+The plugin creates a custom table in the Liferay database using JPA. In order for this to work, a database pool must be configured in tomcat as well as in the portlet.
 
 ### Configuring a database pool in tomcat ###
 
