@@ -6,7 +6,7 @@ The plugin is designed and implemented with the intention that the favorites por
 
 ![Favorites in a theme](https://bytebucket.org/monator/oppna-program-favorites/raw/30318d92b2255122465cde31c8608236e377291e/documentation/favorites-included-in-theme.png?token=840deb6414b2bc440a5628355be0073d8990eca8)
 
-## Basic Features? ##
+## Basic Features ##
 
 User clicks the star icon in the portlet. This triggers an overlay displaying a link/button to bookmark the current page. Below the button a list is displayed with all the layouts bookmarked by the user in the current site.
 
