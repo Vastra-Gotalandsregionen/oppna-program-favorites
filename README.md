@@ -4,7 +4,7 @@ The project oppna-program-favorites is an application that allows users to bookm
 
 The plugin is designed and implemented with the intention that the favorites portlet is to be used included in a Liferay theme. See section below "Include in theme".
 
-![Favorites in a theme](https://bytebucket.org/monator/oppna-program-favorites/raw/30318d92b2255122465cde31c8608236e377291e/documentation/favorites-included-in-theme.png?token=840deb6414b2bc440a5628355be0073d8990eca8)
+![Favorites in a theme](https://raw.githubusercontent.com/mrg3kko/oppna-program-favorites/master/documentation/favorites-included-in-theme.png)
 
 ## Basic Features ##
 
