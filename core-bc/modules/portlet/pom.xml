@@ -40,20 +40,30 @@ Generation time : 2013-05-08 10:10:47 CEST
       <groupId>se.vgregion.oppna-program-favorites</groupId>
       <artifactId>oppna-program-favorites-core-bc-composite-svc</artifactId>
       <version>${project.version}</version>
+      <exclusions>
+         <exclusion>
+           <groupId>xml-apis</groupId>
+           <artifactId>xml-apis</artifactId>
+         </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>
       <groupId>javax.portlet</groupId>
       <artifactId>portlet-api</artifactId>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.liferay.portal</groupId>
-      <artifactId>portal-service</artifactId>
+      <artifactId>com.liferay.portal.kernel</artifactId>
+      <version>2.50.0</version>
+      <scope>provided</scope>
     </dependency>
     <!-- To get tag assistance in your IDE -->
     <dependency>
       <groupId>com.liferay.portal</groupId>
-      <artifactId>util-taglib</artifactId>
+      <artifactId>com.liferay.util.taglib</artifactId>
+      <version>2.8.0</version>
     </dependency>
     <dependency>
       <groupId>taglibs</groupId>
@@ -95,6 +105,7 @@ Generation time : 2013-05-08 10:10:47 CEST
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>

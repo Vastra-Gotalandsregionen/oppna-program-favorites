@@ -26,8 +26,8 @@ import se.vgregion.portal.favorites.comporator.LayoutNameCompator;
 
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.WebKeys;
-import com.liferay.portal.model.Layout;
-import com.liferay.portal.theme.ThemeDisplay;
+import com.liferay.portal.kernel.model.Layout;
+import com.liferay.portal.kernel.theme.ThemeDisplay;
 
 /**
  * Controller class for the view mode in User Favorites Quick Add portlet.

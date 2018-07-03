@@ -3,7 +3,7 @@ package se.vgregion.portal.favorites.comporator;
 import java.util.Comparator;
 import java.util.Locale;
 
-import com.liferay.portal.model.Layout;
+import com.liferay.portal.kernel.model.Layout;
 
 public class LayoutNameCompator  implements Comparator<Layout> {
 	

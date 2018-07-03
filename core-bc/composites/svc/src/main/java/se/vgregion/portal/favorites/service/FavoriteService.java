@@ -2,7 +2,7 @@ package se.vgregion.portal.favorites.service;
 
 import java.util.List;
 
-import com.liferay.portal.model.Layout;
+import com.liferay.portal.kernel.model.Layout;
 
 import se.vgregion.portal.favorites.domain.jpa.Favorite;
 import se.vgregion.portal.favorites.exception.CreateFavoriteException;

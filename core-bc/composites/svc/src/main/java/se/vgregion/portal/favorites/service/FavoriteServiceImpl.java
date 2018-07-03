@@ -13,11 +13,11 @@ import se.vgregion.portal.favorites.exception.CreateFavoriteException;
 import se.vgregion.portal.favorites.exception.UpdateFavoriteException;
 import se.vgregion.portal.favorites.repository.FavoriteRepository;
 
-import com.liferay.portal.NoSuchLayoutException;
+import com.liferay.portal.kernel.exception.NoSuchLayoutException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.model.Layout;
-import com.liferay.portal.service.LayoutLocalServiceUtil;
+import com.liferay.portal.kernel.model.Layout;
+import com.liferay.portal.kernel.service.LayoutLocalServiceUtil;
 
 /**
  * Implementation of {@link FavoriteService}.

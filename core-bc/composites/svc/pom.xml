@@ -25,14 +25,19 @@
 		</dependency>
 
 	    <dependency>
-	      <groupId>com.liferay.portal</groupId>
-	      <artifactId>portal-service</artifactId>
+            <groupId>com.liferay.portal</groupId>
+            <artifactId>com.liferay.portal.kernel</artifactId>
+            <version>2.50.0</version>
+            <scope>provided</scope>
 	    </dependency>
 
 	    <dependency>
-	      <groupId>com.liferay.portal</groupId>
-	      <artifactId>util-java</artifactId>
-	    </dependency>
+		    <groupId>com.liferay.portal</groupId>
+		    <artifactId>com.liferay.util.java</artifactId>
+		    <version>2.0.0</version>
+		    <scope>provided</scope>
+		</dependency>
+
 
 		<dependency>
 			<groupId>se.vgregion.daoframework</groupId>

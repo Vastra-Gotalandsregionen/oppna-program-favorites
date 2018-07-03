@@ -35,7 +35,7 @@
     <property name="showSql" value="${hibernate.vendor.showsql}" />
   </bean>
 
-  <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+  <bean id="dataSource" class="se.vgregion.portal.favorites.service.config.DataSourceFactory">
     <property name="jndiName" value="java:comp/env/jdbc/HotellDbPool" />
   </bean>
 
