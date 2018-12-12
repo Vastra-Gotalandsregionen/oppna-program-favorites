@@ -110,79 +110,80 @@
 		
 	</div>
 
-	<liferay-util:html-bottom>
-		<script>
-		
-		AUI().ready('aui-base', 'event-outside', 'aui-pagination', function(A) {
-	
-			var portletNamespace = '<portlet:namespace />';
-			var portletNode = A.one('#p_p_id' + portletNamespace);
-			var quickAddPanel = portletNode.one('.quick-add-panel');
-			var quickAddWrap = portletNode.one('.favorites-quickadd');
-			var favoritesList = portletNode.one('.favorites-list');
-			
-			var favoriteTriggers = portletNode.all('.favorite-trigger');
-			
-			favoriteTriggers.on('click', function(e) {
-				e.halt();
-				quickAddWrap.toggleClass('favorites-quickadd-open'); 
-			});
-			
-			quickAddPanel.on('clickoutside', function(e) {
-				if(quickAddWrap.hasClass('favorites-quickadd-open')) {
-					quickAddWrap.removeClass('favorites-quickadd-open');
-				}
-			})
-			
-			var paginatorItemsPerPage = ${paginatorItemsPerPage};
-			var paginatorItemsTotal = ${favoriteLayoutsTotal};
-			var paginatorTotalPages = Math.ceil(paginatorItemsTotal / paginatorItemsPerPage);
-			
-			var paginatorBox = A.one('#' + portletNamespace + 'paginator');
-			
-			if(paginatorBox) {
-			    var paginator = new A.Pagination({
-					boundingBox: paginatorBox,
-					//containers: paginatorBox,
-					on: {
-						changeRequest: function(event) {
-							this.setState(event.state);
-							showFavoritesPage(event.state.page)
-						}
-					},
-					page: 1,
-					strings: {
-						next: '»',
-						prev: '«'
-					},			
-					total: paginatorTotalPages
-				}).render();
-			}
-		    
-		    function showFavoritesPage(pageIndex) {
-		    	var favoriteItems = favoritesList.all('> li');
-		    	
-		    	// Hide all
-		    	favoriteItems.hide();
-		    	
-		    	var firstItemToShow = (pageIndex -1) * paginatorItemsPerPage;
+    <aui:script use="aui-base, event-outside, aui-pagination">
 
-		    	var lastItemToShow = pageIndex * paginatorItemsPerPage - 1;
-		    	
-		    	for(i = firstItemToShow; i <= lastItemToShow; i++) {
-		    		if(i < paginatorItemsTotal) {
-		    			favoriteItems.item(i).show();
-		    		}
-		    	}
-		    	
-		    }
-			
-			
-		});
-		
-		
-		</script>
-	
-	</liferay-util:html-bottom>
+        var portletNamespace = '<portlet:namespace />';
+        var paginatorItemsPerPage = ${paginatorItemsPerPage};
+        var paginatorItemsTotal = ${favoriteLayoutsTotal};
+        var paginatorTotalPages = Math.ceil(paginatorItemsTotal / paginatorItemsPerPage);
+
+        var portletNode, quickAddPanel, quickAddWrap, favoritesList, favoriteTriggers, paginator;
+
+        initFavoritesQuickAdd();
+        initPaginator();
+
+        function initFavoritesQuickAdd() {
+
+            portletNode = A.one('#p_p_id' + portletNamespace);
+            quickAddPanel = portletNode.one('.quick-add-panel');
+            quickAddWrap = portletNode.one('.favorites-quickadd');
+            favoritesList = portletNode.one('.favorites-list');
+
+            favoriteTriggers = portletNode.all('.favorite-trigger');
+
+
+            favoriteTriggers.on('click', function(e) {
+                e.halt();
+                quickAddWrap.toggleClass('favorites-quickadd-open');
+            });
+
+            quickAddPanel.on('clickoutside', function(e) {
+                if(quickAddWrap.hasClass('favorites-quickadd-open')) {
+                    quickAddWrap.removeClass('favorites-quickadd-open');
+                }
+            });
+
+        }
+
+        function initPaginator() {
+            var paginatorBox = A.one('#' + portletNamespace + 'paginator');
+
+            if(paginatorBox) {
+                paginator = new A.Pagination({
+                    boundingBox: paginatorBox,
+                    on: {
+                        changeRequest: function(event) {
+                            this.setState(event.state);
+                            showFavoritesPage(event.state.page)
+                        }
+                    },
+                    page: 1,
+                    strings: {
+                        next: '&rarr;',
+                        prev: '&larr;'
+                    },
+                    total: paginatorTotalPages
+                }).render();
+            }
+        }
+
+        function showFavoritesPage(pageIndex) {
+            var favoriteItems = favoritesList.all('> li');
+
+            /* Hide all*/
+            favoriteItems.hide();
+
+            var firstItemToShow = (pageIndex -1) * paginatorItemsPerPage;
+
+            var lastItemToShow = pageIndex * paginatorItemsPerPage - 1;
+
+            for(i = firstItemToShow; i <= lastItemToShow; i++) {
+                if(i < paginatorItemsTotal) {
+                    favoriteItems.item(i).show();
+                }
+            }
+
+        }
+</aui:script>
 
 </c:if>
