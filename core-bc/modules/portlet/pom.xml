@@ -57,14 +57,14 @@ Generation time : 2013-05-08 10:10:47 CEST
       <groupId>com.liferay.portal</groupId>
       <artifactId>com.liferay.portal.kernel</artifactId>
       <scope>provided</scope>
-      <version>3.26.0</version>
+      <version>4.33.1</version>
     </dependency>
     <!-- To get tag assistance in your IDE -->
     <dependency>
       <groupId>com.liferay.portal</groupId>
       <artifactId>com.liferay.util.taglib</artifactId>
       <scope>provided</scope>
-      <version>3.3.7</version>
+      <version>4.2.1</version>
     </dependency>
     <dependency>
       <groupId>taglibs</groupId>
